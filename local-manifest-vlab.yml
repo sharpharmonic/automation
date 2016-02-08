@@ -1,0 +1,56 @@
+---
+description: A sample test environment illustrating the supported resource types
+name: Sample Test Environment
+input:
+  resources:
+  - id: '1'
+    type: ACP
+    imageName: ACP-ACP_SystemTest_SJDeviceTest3.64
+    constraints:
+    - hwModel: ELC-X2-CHS-AC
+  - id: '2'
+    type: HATSAnalyzer
+    artifacts:
+      hatsAnalyzer: http://hivy.hlit.local/artifactory/ivy-repos/harmonic/HATSFramework/trunk/7.0.0.0-eng.470/HATS_pack.tgz
+  - id: '3'
+    type: NMX&HATSClient
+    artifacts:
+      hatsClient: http://hivy.hlit.local/artifactory/ivy-repos/harmonic/HATSFramework/trunk/7.0.0.0-eng.470/HATS_installer.zip
+      nmx: http://hivy.hlit.local/artifactory/ivy-repos/harmonic/nmx/7.3.x.0/7.3.0.0.20/nmx_build_output.zip
+  - id: '4'
+    type: Electra
+output:
+  stackId: ACP_SystemTest_SJDeviceTest3.64_0
+  resources:
+  - id: '1'
+    type: ACP
+    mgmtIp: 10.21.14.202
+    mgmtSubnet: 255.255.255.0
+    mgmtGateway: 10.21.14.1
+    nodeId: 10.21.14.102
+    hwModel: ELC-X2-CHS-AC
+    macAddress: 00-1e-67-b3-85-2b
+    dataSwitchConnectionInfo:
+      dataSwitchIp: 10.21.14.1
+      dataSwitchPorts:
+      - intf: eth4
+        ip: 172.17.61.202
+        subnet: 255.255.255.0
+        switchPort: Eth103/1/5
+        dataMacAddress: 00-1e-67-b5-8d-a0
+      - intf: eth5
+        ip: 172.17.62.202
+        subnet: 255.255.255.0
+        switchPort: Eth103/1/6
+        dataMacAddress: 00-1e-67-b5-8d-a1
+  - id: '6'
+    type: HATSClient&Analyzer
+    mgmtIp: 10.21.11.204
+    dataSwitchConnectionInfo:
+      dataSwitchIp: 192.168.20.2
+      dataSwitchPorts:
+      -
+        intf: eth0
+        ip: 172.17.24.204
+        switchPort: Eth100/1/10
+
