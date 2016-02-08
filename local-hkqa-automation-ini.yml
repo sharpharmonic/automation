@@ -1,0 +1,51 @@
+Setup: 
+ NMX:
+  IPAddress: '172.16.20.217' #This field will be overridden with values in the manifest file actually
+  Username: Administrator
+  Password:
+ Device:
+  IPAddress: '172.16.20.105' #This field will be overridden with values in the manifest file actually
+  DeviceType: 'ElectraX'
+ Analyzer:
+  IPAddress: '127.0.0.1'
+  Username: 'administrator'
+  Password: 'lab!@#321'
+  ManagementInterface: '127.0.0.1'
+  CaptureInterface: '172.17.24.204' #If CaptureInterface and StreamInterface are the same, eth0 of test client will be used for both streaming and capturing   
+  StreamInterface: '172.17.24.204' #If CaptureInterface and StreamInterface are different, eth0 of test client will be streaming and eth1 of test client will be used for capturing
+  SourceMulticastIP: '226.0.32.201'   
+  OutputMulticastIP: '234.1.32.21' 
+ NTPServer:
+  IPAddress: '10.11.130.105'         
+  TimeZone: '(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi'
+ Spectrum:
+  IPAddress: '10.50.100.83'
+ QADomainAccount:                 #Used for accessing hdropbox
+  Username: 'HLS\hkqauto'
+  Password: 'QfmSjQFXULI/AFiq:lXiJTvx+Vk-HoN?'
+ PatchOrgIniCfg: False
+ DeleteAssetAtLowDiskSpace: False 
+ DeleteOutput: False              
+ DoNotShowPassInReport: True
+ LogoSlateServerPath: 'http://10.11.232.30:8080/binary/HKQA/Automation/LogoSlate/' 
+
+Tests:
+ envsetup:
+  Config: 'C:\HATSFramework\HATS\Testcases\GenericTemplate\ElectraXDeviceTest\TestCases\EnvSetup\EnvSetup-cfg.yml'
+  InterfaceMode: XML
+  LocalSourceAsset: 'C:\Assets'
+  NetworkSourceAsset: '\\hsjdropbox\asset_unmanaged\NewMediaQAAsset'
+  ResultPath: C:\ElectraXTestLog
+ threepointtemplatetest:
+  Config: C:\HATSFramework\HATS\Testcases\GenericTemplate\ElectraXDeviceTest\TestCases\UMP\GraphicOverlay\ThreePointTemplateTest_cfg.yml
+  InterfaceMode: XML
+  LocalSourceAsset: C:\TEMP\Asset
+  NetworkSourceAsset: \\hsjdropbox\asset_unmanaged\NewMediaQAAsset
+  ResultPath: C:\ElectraXTestLog
+
+ icdnegativetest:
+  Config: C:\HATSFramework\HATS\Testcases\GenericTemplate\ElectraXDeviceTest\TestCases\GraphicOverlay\ICDNegativeTest_cfg.yml
+  InterfaceMode: XML
+  LocalSourceAsset: C:\TEMP\Asset
+  NetworkSourceAsset: \\hsjdropbox\asset_unmanaged\NewMediaQAAsset
+  ResultPath: C:\ElectraXTestLog
